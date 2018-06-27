@@ -65,7 +65,7 @@ total = cost * multiplier
 print ("You should have tipped the young maiden ${:.2f} for your meal!\n").format(total)
 
 #8
-friends = int(input("Oh! you say you were out ewith frinds though, and that total was split between you? How many friends were you with? "))
+friends = int(input("Oh! you say you were out with frinds though, and that total was split between you? How many friends were you with? "))
 friends = friends + 1
 serv = raw_input("How well was your service last night at dinner again? good, fair, or bad? ")
 if (serv.upper() == 'GOOD'):
@@ -98,7 +98,7 @@ def gimme(count):
         count = count + 1
         gimme(count)
     else:
-        print ("Have fun with your " + str(count) + " coints! Don't spend them all in one place!")
+        print ("Have fun with your " + str(count) + " coins! Don't spend them all in one place!")
 if (answer.upper() == "YES"):
     count = count + 1
     gimme(count)
