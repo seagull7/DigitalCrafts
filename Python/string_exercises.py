@@ -49,13 +49,14 @@ print (new_word)
 #6- Given a string, print the Caesar Cipher (or ROT13) of that string. 
 # Use your solution to decipher the following text: "lbh zhfg hayrnea 
 # jung lbh unir yrnearq"
-word = raw_input("Give me a string. ")
-new_word = ""
+word = "lbh zhfg hayrnea jung lbh unir yrnearq"
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+position = 0
+new_position = 0
 for letter in word:
-    if (letter == "z"):
-        new_word += ("a")
-    elif (letter == "Z"):
-        new_word += ("A")
-    else:
-        new_word += (chr(ord(letter)+1))
-print new_word
+    if (letter.isspace() == False):
+        position = alphabet.index(letter)
+        new_position = position - 13
+        if new_position < 0:
+            new_position += 26
+        print (alphabet[new_position]),
