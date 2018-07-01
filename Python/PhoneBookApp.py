@@ -1,44 +1,49 @@
 book = {}
 
 def one():
-    who = raw_input("Name: ")
-    if book.get(who) != "None":
-        print ("Found entry for " + who + ":" + book.get(who))
+    who = raw_input("Type \'back\' to go back to the main menu. \nName: ")
+    if who == "back":
+        PhoneBook()
+    elif book.get(who) != None:
+        print ("\nFound entry for " + who + ":" + book.get(who))
         PhoneBook()
     else:
-        print ("Entry not found, please try again: \n")
+        print ("\nEntry not found, please try again: ")
         one()
+
+        
 
 def two():
     nName = raw_input("Name: ")
     nPhone = raw_input("Phone Number: ")
     book[nName] = nPhone
-    print("Entry Stored for " + nName "\n")
+    print("Entry Stored for " + nName + "\n")
     PhoneBook()
 
 def three():
-    nName = raw_input("Name: ")
+    nName = raw_input("Type \'back\' to go back to the main menu. \nName: ")
     counter = 0
-    if nName in book:
+    if nName == "back":
+        PhoneBook()
+    elif nName in book:
         del book[nName]
-        Print ("Deleted entry for " + nName)
+        print ("Deleted entry for " + nName)
         print ("\n")
         PhoneBook()
-    elif counter < 3:
+    else:
         print ("Entry not found, please try again: ")
         three()
-        counter +=1
-    else:
-        PhoneBook()
 
 def four():
+    if book == {}:
+        print ("\nYour adress book is empty, try putting something in it first!")
+        PhoneBook()
     for nName, nNumber in book.items():
-        print ("Found enbtry for " + nName + ":" + nNuumber)
-        print ("\n")
+        print ("\nFound entry for " + nName + ": " + nNumber + "\n")
         PhoneBook()
 
 def five():
-    print ("Bye.")
+    print ("Bye.\n")
 
 
 def PhoneBook():    
@@ -54,5 +59,8 @@ def PhoneBook():
         four()
     elif menu == 5:
         five()
+    else:
+        print("Command not recognized:")
+        PhoneBook()
 
 PhoneBook()
