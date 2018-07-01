@@ -113,13 +113,12 @@ pmadd(lst, lst2)
 #11- Given an list of numbers or strings, create a new list containing 
 # the same elements as the first list, except with any duplicate values 
 # removed. Print the list.
-def pmadd(list,list2):
-    for i in range(len(list)):
-        for j in range(len(list[i])):
-            print(list[i][j]+list2[i][j])
-lst = [[1, 2, 4], [-8, 4, 2, 3]]
-lst2 = [[3, 3, 5], [4, 5, 1, 1]]
-pmadd(lst, lst2)
+a = [1, 3, 5, -6]
+b = []
+    for i in a:
+        if i not in b:
+            b.append(i)
+
 
 #12- Given two two-dimensional lists of numbers of the size 2x2 - calculate 
 # the result of multiplying the two matrices. Print the resulting matrix. 
