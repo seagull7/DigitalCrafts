@@ -5,7 +5,7 @@ def one():
     if who == "back":
         PhoneBook()
     elif book.get(who) != None:
-        print ("\nFound entry for " + who + ":" + book.get(who))
+        print ("\nFound entry for " + who + ": " + book.get(who))
         PhoneBook()
     else:
         print ("\nEntry not found, please try again: ")
@@ -40,7 +40,7 @@ def four():
         PhoneBook()
     for nName, nNumber in book.items():
         print ("\nFound entry for " + nName + ": " + nNumber + "\n")
-        PhoneBook()
+    PhoneBook()
 
 def five():
     print ("Bye.\n")

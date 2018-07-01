@@ -1,5 +1,5 @@
 from turtle import *
-from shapes impiort *
+from shapes import *
 #1-
     #1.triangle
 def eTriangle():
