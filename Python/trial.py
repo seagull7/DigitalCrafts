@@ -1,5 +1,5 @@
 import random
-
+import sys
 class Item:
     def __init__(self, name, price, count, description):
         self.name = self
@@ -29,23 +29,24 @@ class ArmorPlate(Item):
     def pack(self, user, backpack):
         user.armor = user.armor + 2
 
-class RegularTonic(Item):
+class Nurse(Item):
     def __init__(self):
-        self.name = "Regular Tonic"
+        self.name = "NURSE!"
         self.count = 9999
-        self.price = 2
-        self.description = "Adds two to your health.Cant take into battle"
+        self.price = 20
+        self.description = "Our realm famous fairy medical staff will heal you up here and now. No refunds. (brings health back to max)"
     def use(self, user):
-        user.health = user.health +2
+        user.health = user.max
 
 class ProtienShake(Item):
     def __init__(self):
         self.name = "Protien shake"
         self.count = 15
         self.price = 20 + ((self.count-15)*5) 
-        self.description = "Adds 5 to your max health."
+        self.description = "Adds 5 to your max health and 5 to your current health."
     def pack(self, user, backpack):
         user.max = user.max + 5
+        user.health = user.health +5
 
 class Axe(Item):
     def __init__(self):
@@ -92,6 +93,7 @@ class Hire_DeadPool(Item):
     def pack(self, user, backpack):
         user.power = user.power + 10
   
+#####################
 
 class Charachter:
     def __init__(self, name, health, power, level):
@@ -128,10 +130,11 @@ class Hero(Charachter):
     def __init__(self):
         self.name = "hero"
         self.max = 10
-        self.health = 10
-        self.power = 5
+        self.health = 20
+        self.power = 25
         self.evade = 1
         self.armor = 0
+        self.gold = 25
         self.level = 1
     def attack(self, enemy):
         crit = random.randint(1, 10)
@@ -141,12 +144,19 @@ class Hero(Charachter):
             print("You missed!")
         else:
             if crit < 3:
-                damage = (self.power*2 -enemy.armor)
-                print ("Critical Strike!")
+                if (enemy.armor > (self.power*2)):
+                    print("It doesnt go throught the armor!")
+                else:
+                    damage = (self.power*2 -enemy.armor)
+                    print ("Critical Strike!")
+                    enemy.health = enemy.health - damage
             else:
-                damage = (self.power- enemy.armor)
-            enemy.health = enemy.health - damage
-            print ("The hero does {} dammage to the {}. The {} has {} health left.").format(damage, enemy.name, enemy.name, enemy.health)
+                if enemy.armor > self.power:
+                    print("It doesnt go through the armor!")
+                else:
+                    damage = (self.power- enemy.armor)
+                    enemy.health = enemy.health - damage
+                    print ("The hero does {} damage to the {}. The {} has {} health left.".format(damage, enemy.name, enemy.name, enemy.health))
             if isinstance(enemy, FireEmp):
                 self.health = self.health - 1
                 print ("The hero is hurt by the flames. He takes one damage.")
@@ -155,7 +165,7 @@ class Hero(Charachter):
                 print("The rock golem's hard skin makes your sword bounce back doing half your power as damage top you!")
     def __str__(self):
         evdpct = self.evade*5
-        return ("Health: {}\nMax-Health: {}\nPower: {}\nEvade: {}({}%)\nArmor: {}".format(self.health, self.max, self.power, self.evade, evdpct, self.armor ))
+        return ("Health: {}\nMax-Health: {}\nPower: {}\nEvade: {}({}%)\nArmor: {}\nGold:{}".format(self.health, self.max, self.power, self.evade, evdpct, self.armor, self.gold ))
 
 class Medic(Charachter):
     def __init__(self, level):
@@ -165,7 +175,7 @@ class Medic(Charachter):
         self.power = 1 + (1*.1*level)
         self.evade = 2 + (2*.1*level)
         self.armor = 0 + (0*.1*level)
-        self.gold = 5 + (5*.1*level)
+        self.gold = 10 + (5*.2*level)
         self.level = 1
     def attack(self, enemy):
         miss = random.randint(1, 100)
@@ -176,9 +186,12 @@ class Medic(Charachter):
         if 1 < miss < (enemy.evade * 5):
             print("You missed!")
         else:
-            damage = (self.power - enemy.armor)
-            enemy.health = enemy.health - damage
-            print ("The Medic does {} damage to the {}. The {} has {} health left.").format(damage, enemy.name, enemy.name, enemy.health)
+            if enemy.armor > self.power:
+                print("It doesnt go throught the this armor!")
+            else:
+                damage = (self.power - enemy.armor)
+                enemy.health = enemy.health - damage
+                print ("The Medic does {} damage to the {}. The {} has {} health left.").format(damage, enemy.name, enemy.name, enemy.health)
 
 class Shadow(Charachter):  
     def __init__(self, level):
@@ -188,7 +201,7 @@ class Shadow(Charachter):
         self.power = 1 + (1*.1*level)
         self.evade = 18 
         self.armor = 0 + (0*.1*level)
-        self.gold = 5 + (5*.1*level)
+        self.gold = 10 + (5*.2*level)
         self.level = 1
 
 class Goblin(Charachter):
@@ -199,7 +212,7 @@ class Goblin(Charachter):
         self.power = 2 + (2*.1*level)
         self.evade = 3 + (3*.1*level)
         self.armor = 0 + (0*.1*level)
-        self.gold = 5 + (5*.1*level)
+        self.gold = 10 + (5*.2*level)
         self.level = 1
 
 class Zombie(Charachter):
@@ -222,47 +235,40 @@ class Slime(Charachter):
         self.power = 1 + (1*.1*level)
         self.evade = 2 + (2*.1*level)
         self.armor = -1 + (-1*.1*level)
-        self.gold = 5 + (5*.1*level)
+        self.gold = 10 + (5*.2*level)
         self.level = 1 
-    def alive(self):
-        split = random.randint(1,2)
-        if (self.health > 0 and split == 1):
-            return True
-        elif (self.health < 0 and split == 2):
-            self.health = 1
-            print("The slime didnt die, but split into two!")
-            return True
-        else:
-            return False
-    
+
 class FireEmp(Charachter):
     def __init__(self, level):
         self.name = "Fire Emp"
         self.health = 6 + (6*.1*level)
         self.max = 6 + (6*.1*level)
         self.power = 3 + (3*.1*level)
-        self.evade = 5 + (5.1*level)
+        self.evade = 4 + (4*.1*level)
         self.armor = 0 + (0*.1*level)
-        self.gold = 5 + (5*.1*level)
+        self.gold = 10 + (5*.2*level)
         self.level = 1
     def attack(self, enemy):
         miss = random.randint(1, 100)
         if 1 < miss < (enemy.evade * 5):
             print("You missed!")
         else:
-            preburn = self.power - enemy.armor
-            damage = self.power + 1 - enemy.armor   
-            enemy.health = enemy.health - damage
+            if enemy.armor > self.power:
+                print("It doesnt go throught the this armor!")
+            else:
+                preburn = self.power - enemy.armor
+                damage = self.power + 1 - enemy.armor   
+                enemy.health = enemy.health - damage
     
 class RockGolem(Charachter):
     def __init__(self, level):
         self.name = "Rock Golem"
         self.health = 10 + (10*.1*level)
         self.max = 10 + (10.1*level)
-        self.power = 2 + (2*.1*level)
-        self.evade = 1 + (1*.1*level)
+        self.power = 1 + (2*.1*level)
+        self.evade = 0 
         self.armor = 4 + (4*.1*level)
-        self.gold = 5 + (5*.1*level)
+        self.gold = 10 + (5*.2*level)
         self.level = 1
 
 class DarkWizzard(Charachter):
@@ -297,6 +303,8 @@ def fight_sequence(flenemy, hero, backpack):
             hero.attack(flenemy)
             if flenemy.alive() == False:
                 print("The {} is dead.").format(flenemy.name)
+                hero.gold += flenemy.gold
+                print("You found {} gold!".format(flenemy.gold))
         elif raw_input == 2:
             print("Choose an item number to use")
             backpack.sort()
@@ -317,12 +325,13 @@ def fight_sequence(flenemy, hero, backpack):
             flenemy.attack(hero)
             if hero.alive() == False:
                 print("You are dead.")
+                sys.exit()
 
 
 def store(a, b, c, d, e, f, g, h, i, hero, backpack):
 
     def sure():
-        leave = raw_input("Are you sure youw ant to leave? (Y or N): ")
+        leave = raw_input("Are you sure you want to leave? (Y or N): ")
         if leave.upper() == "Y":
             return
         elif leave.upper() == "N":
@@ -339,10 +348,14 @@ def store(a, b, c, d, e, f, g, h, i, hero, backpack):
             if item.count == 0:
                 print("This item is out of stock.")
                 store (a, b, c, d, e, f, g, h, i, hero, backpack)
+            elif hero.gold < item.price:
+                print("You dont have enought gold.")
+                store (a, b, c, d, e, f, g, h, i, hero, backpack)
             else: 
                 item.pack(hero, backpack)
                 print("You bought " + item.name)
                 item.count = item.count - 1
+                hero.gold -= item.price
                 store (a, b, c, d, e, f, g, h, i, hero, backpack)
         elif choice == 2:
             store(a, b, c, d, e, f, g, h, i, hero, backpack)
@@ -350,14 +363,16 @@ def store(a, b, c, d, e, f, g, h, i, hero, backpack):
             sure()
         else:
             print("Invalid input, please try again: ")
+            store(a, b, c, d, e, f, g, h, i, hero, backpack)
     
     print()
     print("Welcome to the shop:")
     print("Select a number for an item in the shop to see what it does or to purchase it. Of course\nthis is a buisness so the items arent free.\nIf you dont have enough cash, go kill a monster or two. I'll have a portal open between each floor.")
     print()
-    print ("1. " + str(a) + "\n2. " + str(b) + "\n3. " + str(c) + "\n4. " + str(d) + "\n5. " + str(e) + "\n6. " + str(f) + "\n7. " + str(g) + "\n8. " + str(h) + "\n9. " + str(i) + "\n10. Get Hero Status\n11.  Exit")
+    print("Gold: {}".format(hero.gold))
     print()
-    choice = int(input())
+    print ("1. " + str(a) + "\n2. " + str(b) + "\n3. " + str(c) + "\n4. " + str(d) + "\n5. " + str(e) + "\n6. " + str(f) + "\n7. " + str(g) + "\n8. " + str(h) + "\n9. " + str(i) + "\n10. Get Hero Status\n11.  Exit")
+    choice = int(input(">>"))
     if choice == 1:
         want_to_buy(a, backpack)
     elif choice == 2:
@@ -385,6 +400,7 @@ def store(a, b, c, d, e, f, g, h, i, hero, backpack):
         print("Invalid input, please try again: ")
         store(a, b, c, d, e, f, g, h, i, hero, backpack)
 
+
 def main():
     print("Welcome to python Dungeon Crawler! Reach the Dark Wizzard in the deepest floor of the Maze!")
     print("Each floor will have a new, stronger combatant, and a small fairy store will have aportal open to")
@@ -395,7 +411,7 @@ def main():
     #items
     super_tonic = SuperTonic()
     armor_plate = ArmorPlate()
-    regular_tonic = RegularTonic()
+    nurse = Nurse()
     protien_shake = ProtienShake()
     axe = Axe()
     winchester = Winchester()
@@ -413,7 +429,7 @@ def main():
     enemy_rotation = [medic, shadow, goblin, slime, fire_emp, rock_golem]
 
 
-    while floor_count < 10:
+    while floor_count < 3:
         #enemies
         medic = Medic(floor_count)
         shadow = Shadow(floor_count)
@@ -428,12 +444,14 @@ def main():
         flenemy = enemy_rotation[next_enemy]
         #
         fight_sequence(flenemy, thishero, backpack)
-        store(super_tonic, armor_plate, regular_tonic, protien_shake, axe, winchester, magic_missile_launcher, lightsaber, hire_deadpool, thishero, backpack)
+        store(super_tonic, armor_plate, nurse, protien_shake, axe, winchester, magic_missile_launcher, lightsaber, hire_deadpool, thishero, backpack)
         floor_count += 1
-    Print("Congradulations! You have reached the final level!!!")
+
+    
+    print("Congradulations! You have reached the final level!!!")
     fight_sequence(dark_wizzard, thishero, backpack)
-    if thishero.alive == True:
-        print("YOU WIN")
+    
+    print("YOU WIN")
     
 
 
