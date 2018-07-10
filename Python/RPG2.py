@@ -859,10 +859,18 @@ def fight_sequence(flenemy, hero, backpack):
         print("| 3. Get status of hero   |")
         print("|_________________________|")
         try:
-            raw_input = int(input(" >>"))
+            # raw_input = int(input(" >>"))
+            raw_input_s = (input(" >>"))
+
+            if raw_input_s == '':
+                print("try again")
+                # banner("Please only use integers")
+                # fight_sequence(flenemy, hero, backpack)
+            else:
+                raw_input = int(raw_input_s)
         except ValueError:
             banner("Please only use integers")
-            fight_sequence(flenemy, hero, backpack)
+            # fight_sequence(flenemy, hero, backpack)
         print()
         if raw_input == 1:
             os.system("clear")
