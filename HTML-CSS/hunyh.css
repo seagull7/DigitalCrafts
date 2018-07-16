@@ -1,0 +1,98 @@
+body{
+    font-size: 1vw;
+}
+.navbar{
+    background-color: rgba(237, 221, 212, 1);
+    opacity: .9;
+}
+.brand{
+    font-family: 'East Sea Dokdo', cursive;
+    line-height: 100px;
+    height: 100px;
+    font-size: 6em;
+}
+.nav-items{
+    margin-top: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+
+.navbar-nav .nav-item .nav-link {
+    color: rgba(40, 61, 59, 1);
+    
+}
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color:rgba(25, 114, 120, 1)
+}
+acolades{
+    text-align: center;
+}
+p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.2em;
+    color: rgba(237, 221, 212, 1);
+    text-shadow: 1px 2px 1px black;
+}
+.f{
+    font-size: 1em;
+
+}
+.email{
+    margin-top: 18vh;
+}
+.bgimg{
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    background: url('best-vietnamese-food.jpg.jpg');
+}
+.context{
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 2.2em;
+    color: rgba(237, 221, 212, 1);
+    text-align: center;
+    text-shadow: 1px 1px  black;
+}
+.foot{
+    background-color: rgba(119, 46, 37, 1);
+}
+.about{
+    margin-left: 20vw;
+    margin-right: 20vw;
+    filter: none;
+}
+
+.dimmer{
+    background-color: black;
+    height: 100%;
+    widows: 100%;
+}
+.menu{
+    width: 60%;
+    margin-left: 20%;
+}
+.odd{
+    background-color: rgba(40, 61, 59, .9);
+    margin-bottom: -16px;
+}
+.even{
+    background-color: rgba(25, 114, 120, .9);
+    margin-bottom: -16px;
+}
+h3{
+    font-family: 'East Sea Dokdo', cursive;
+
+    font-size: 4em;
+    color: rgba(237, 221, 212, 1);
+}
+.bodytext{
+    font-size:2em;
+    font-family: 'Raleway', sans-serif;
+
+}
