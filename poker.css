@@ -1,0 +1,60 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+#table{
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#green{
+    height: 100%;
+    width: 100%;
+}
+
+.buttons{
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
+    height: 10%;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button{
+    height: 90%;
+    width: 30%;
+    border-radius: 15%;
+    box-shadow: 3px 3px 2px;
+    background-color: slategrey;
+    font-size: 3em;
+}
+
+.scoring{
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+}
+
+#dealer-hand{
+    position: absolute;
+    top: 22.5%;
+    left: 34%;
+    height: 17%;
+    width: 5%; 
+    display: flex;
+    flex-direction: row;
+}
+
+#player-hand{
+    position: absolute;
+    bottom: 17%;
+    left: 28%;
+    height: 17%;
+    width: 5%; 
+    display: flex;
+    flex-direction: row;
+}

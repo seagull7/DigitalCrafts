@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="poker.css">
+</head>
+<body>
+
+    <div id="table">
+        <img id="green" src="table.jpg">
+
+            <div id="messages"></div>
+
+
+            <!-- Scoring -->
+            <div class="scoring">
+                
+                <label>Dealer: </label>
+                
+                <label id="dealer-points" class="points"></label>
+                
+                <label>Player: </label>
+                
+                <label id="player-points" class="points"></label>
+
+            </div>
+
+
+            <!-- Dealer Hand -->
+            <div id="dealer-hand" class="hand">
+                <img id="1d" src="" >
+                <img id="2d" src="" >
+                <img id="3d" src="" >
+                <img id="4d" src="" >
+                <img id="5d" src="" >
+                <img id="6d" src="" >
+                <img id="7d" src="" >
+                <img id="8d" src="" >
+                <img id="9d" src="" >
+            </div>
+
+
+            <!-- Player Hand --> 
+            <div id="player-hand" class="hand">
+                <img id="1p" src="" >
+                <img id="2p" src="" >
+                <img id="3p" src="" >
+                <img id="4p" src="" >
+                <img id="5p" src="" >
+                <img id="6p" src="" >
+                <img id="7p" src="" >
+                <img id="8p" src="" >
+                <img id="9p" src="" >
+            </div>
+
+
+            <!-- Buttons -->  
+            <div class="buttons">
+                
+                <button class="button" id="deal-button">Deal</button>
+                
+                <button class="button" id="hit-button">Hit</button>
+                
+                <button class="button" id="stand-button">Stand</button>
+            
+            </div>
+        </img>
+        
+    </div>
+        
+        
+    <script src = "poker.js"></script>
+</body>
+</html>
