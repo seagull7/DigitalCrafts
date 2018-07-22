@@ -27,6 +27,16 @@
                 <label id="player-points" class="points"></label>
 
             </div>
+            <div class = "winTally">
+                <label>Dealer: </label>
+                
+                <label id="dealer-wins" class="wins"></label>
+                
+                <label>Player: </label>
+                
+                <label id="player-wins" class="wins"></label>
+
+            </div>
 
 
             <!-- Dealer Hand -->
@@ -41,7 +51,10 @@
                 <img id="8d" src="" >
                 <img id="9d" src="" >
             </div>
-
+            <div id= "popUpMessage">
+                <img id= "popUpImage" src="">
+                <button id="continue-button">Play Again?</button>
+            </div>
 
             <!-- Player Hand --> 
             <div id="player-hand" class="hand">
@@ -56,8 +69,9 @@
                 <img id="9p" src="" >
             </div>
 
-
+            
             <!-- Buttons -->  
+            <button id = "over-button"></button>
             <div class="buttons">
                 
                 <button class="button" id="deal-button">Deal</button>

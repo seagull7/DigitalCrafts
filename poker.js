@@ -26,8 +26,13 @@
     var deal = document.getElementById("deal-button");
     var hit = document.getElementById("hit-button");
     var stand = document.getElementById("stand-button");
+    var popUpMessage = document.getElementById("popUpMessage");
+    var continueButton = document.getElementById("continue-button");
     //FUNCTION VARS
     var pCounter = 2;
+    var popUpMessage = document.getElementById("popUpMessage");
+    var popUpImage = document.getElementById("popUpImage");
+    var dCounter = 3;
     //DECK
     var deck = [];
     //POINTS
@@ -36,6 +41,9 @@
 
 /////////////////////////////////////////////////////////
 deal.onclick = function(){
+
+    dealerHand = [];
+    playerHand = [];
     dealArray.forEach(element => {
         element.setAttribute("src", "");
     });
@@ -62,8 +70,8 @@ deal.onclick = function(){
     let PC2img = "JPEG/" + cardP2.name + cardP2.suit + ".jpg"
     PC2.setAttribute("src", PC2img);
     pCounter = 2;
-    dealerPoints.textContent= (sumArr(dealerHand));
-    playerPoints.textContent= (sumArr(playerHand));
+    dealerPoints.textContent= (dealerHand.reduce(getSum));
+    playerPoints.textContent= (playerHand.reduce(getSum));
 }
 
 hit.onclick = function(){
@@ -73,10 +81,50 @@ hit.onclick = function(){
         let Himg = "JPEG/" + cardH.name + cardH.suit + ".jpg"
         playArray[pCounter].setAttribute("src", Himg);
         pCounter ++;
-        dealerPoints.textContent= (sumArr(dealerHand));
-        playerPoints.textContent= (sumArr(playerHand));
+        playerPoints.textContent= (playerHand.reduce(getSum));
+    }
+    if(playerHand.reduce(getSum) > 21 ){
+        if (playerHand.indexOf(11) !== -1) {
+                playerHand[playerHand.indexOf(11)] = 1;
+                playerPoints.textContent= (playerHand.reduce(getSum));
+            }
+        else{
+            popUpImage.setAttribute("src", "https://media3.giphy.com/media/l0ExeAkpaMaEAuX5e/giphy.gif");
+            popUpMessage.setAttribute("style", "visibility: visible;");
+        }
+    }
+}
+
+stand.onclick = function(){
+    while(dealerHand.reduce(getSum) < 17){
+        var cardS = dealFunc();
+        dealerHand.push(cardS.value);
+        let Simg = "JPEG/" + cardS.name + cardS.suit + ".jpg"
+        dealArray[dCounter].setAttribute("src", Simg);
+        dealerPoints.textContent= (dealerHand.reduce(getSum));
+        dCounter ++;
+    }
+    if(dealerHand.reduce(getSum) > 21 ){
+        if (dealerHand.indexOf(11) !== -1) {
+            dealerHand[dealerHand.indexOf(11)] = 1;
+            dealerPoints.textContent= (dealerHand.reduce(getSum));
+        }
+        else{
+            popUpImage.setAttribute("src", "https://media0.giphy.com/media/3orif9LivxKZv58qWs/giphy.gif");
+            popUpMessage.setAttribute("style", "visibility: visible;");
+        }
     }
 
+}
+
+continueButton.onclick = function(){
+    popUpMessage.setAttribute("style", "visibility: hidden");
+    dealArray.forEach(element => {
+        element.setAttribute("src", "");
+    });
+    playArray.forEach(element => {
+        element.setAttribute("src", "");
+    });
 }
 
 function makeCard(value, name, suit){
@@ -92,7 +140,15 @@ function makeDeck(){
     
     for( var s = 0; s < this.suits.length; s++ ) {
         for( var n = 0; n < this.names.length; n++ ) {
-            cards.push( new makeCard( n+1, this.names[n], this.suits[s] ) );
+            if(this.names[n] == "J" || this.names[n] == "Q" || this.names[n] == "K"){
+                cards.push( new makeCard( 10, this.names[n], this.suits[s] ) );
+            }
+            else if (this.names[n] == "A"){
+                cards.push( new makeCard( 11, this.names[n], this.suits[s] ) );
+            }
+            else{
+                cards.push( new makeCard( n+1, this.names[n], this.suits[s] ) );
+            }
         }
     }
 
@@ -124,14 +180,7 @@ function dealFunc(){
     }
     return deck.pop();
 }
-function sumArr(array, counter = [0]){
-    if (array.length != 0){
-        counter[0] += array.pop();
-        sumArr(array, counter);
-    }
-    return counter[0];
+function getSum(total, num) {
+    return total + num;
 }
 //
-var box = document.getElementById('contain');
-var boxinbox = document.getElementById('center');
-var pop = document.createElement("img");
