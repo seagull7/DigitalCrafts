@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            /*
+            Change the text of the button to "Please click me!". Putting your code in the document ready block is important.
+            */
+            $(document).ready(function () {
+                var par = $('#the-message');
+                var button = $('#the-button');
+                button.text("Please Click Me!");
+                button.click(function () {
+                console.log("You Clicked!");
+                button.text("Click again?")
+                par.text("You Clicked Me!")
+                })
+            });
+        </script>
+    </head>
+        <body>
+            <button id="the-button">meh</button>
+            <p id="the-message">Pardon me, would you please</p>
+        </body>
+    </html>

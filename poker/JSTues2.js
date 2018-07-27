@@ -1,3 +1,24 @@
+var mom = {
+    firstName: 'Alice',
+    lastName: 'Wong',
+    eyeColor: 'brown',
+    hairColor: 'black',
+    showInfo(){
+        console.log(this.firstName, this.lastName, this.hairColor, this.eyeColor);
+    }
+};
+
+var daughter = {
+    firstName: 'Ilene',
+    hairColor: 'brown'
+}; 
+
+daughter.__proto__ = mom;
+
+daughter.showInfo()
+
+
+//////////
 class Person {
     constructor(name){
     this.name = name;
@@ -17,7 +38,7 @@ class Person {
     };
     createGreetingsForFriends(){    
         this.friends.map(function(e) {
-            console.log("Yo " + e.name + "! From " + this);
+            console.log("Yo " + e.name + "! From " + this.name);
         });
     }
 }
