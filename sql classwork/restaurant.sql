@@ -1,0 +1,59 @@
+-- DROP TABLE restaurant;
+-- CREATE TABLE restaurant (
+--   id serial PRIMARY KEY,
+--   name varchar,
+--   address varchar,
+--   category varchar
+-- );
+
+-- CREATE TABLE reviewer (
+--   id serial PRIMARY KEY,
+--   name varchar,
+--   email varchar,
+--   karma integer check (karma >= 0 and karma <= 7)
+-- );
+
+-- CREATE TABLE review (
+--   id serial PRIMARY KEY,
+--   title varchar,
+--   review varchar,
+--   stars integer check (stars >= 0 and stars <= 5),
+--   reviewer_id integer REFERENCES reviewer (id),
+--   restaurant_id integer REFERENCES restaurant (id)
+-- );
+-- 1
+-- SELECT title FROM review WHERE restaurant_id = 5;
+-- 2
+-- SELECT review from review 
+--     JOIN restaurant ON restaurant.id = restaurant_id WHERE restaurant.name = 'Bubbas';
+-- 3
+-- SELECT review FROM review
+--     JOIN reviewer ON reviewer.id = reviewer_id where reviewer.name = 'Kit FIsto'
+-- 4
+-- SELECT review, restaurant.name from review 
+--     JOIN restaurant ON restaurant.id = restaurant_id ;
+-- 5
+-- SELECT restaurant.name, AVG(review.stars) FROM restaurant
+--     JOIN review ON restaurant.id = review.restaurant_id GROUP BY restaurant.name;
+-- 6
+-- SELECT restaurant.name, COUNT(review) FROM review
+--     JOIN restaurant ON restaurant.id = restaurant_id GROUP BY restaurant.name;
+-- 7
+-- SELECT restaurant.name, reviewer.name, review FROM review
+--     JOIN restaurant ON restaurant.id = restaurant_id
+--     JOIN reviewer ON reviewer.id = reviewer_id;
+-- 8
+-- SELECT reviewer.name, AVG(review.stars) FROM review
+--     JOIN reviewer ON reviewer_id = reviewer.id GROUP BY reviewer.name;
+-- 9
+-- SELECT reviewer.name, MIN(review.stars) FROM review
+--     JOIN reviewer ON reviewer_id = reviewer.id GROUP BY reviewer.name;
+-- 10
+-- SELECT category, COUNT(name) FROM restaurant GROUP BY category;
+-- 11
+-- SELECT name, COUNT(review.stars) FROM restaurant
+--     JOIN review ON restaurant.id = restaurant_id WHERE stars = 5 GROUP BY name;
+-- 12
+-- SELECT category, AVG(review.stars) FROM restaurant 
+--     JOIN review ON review.restaurant_id = restaurant.id GROUP BY category;
+INSERT into restaurant VALUES(default, 'luigis', '111amy', 'italian');

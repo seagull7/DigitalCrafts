@@ -1,0 +1,43 @@
+{
+    "doge": [{
+        "title" : "Pug Faced Doge",
+        "name": "Pat",
+        "description": " This doge cant be bothered to move. His priorities lie strictly in contemplating world peace. Wow, such deep thoughts. ",
+        "artwork": ["https://metrouk2.files.wordpress.com/2018/02/berry-featured-3.jpg?quality=80&strip=all"]
+    },{
+        "title" : "Spy Doge",
+        "name": "K9 Johnson",
+        "description": " This doge iz watching your every move. He is hidden and you will never find him. Wow, amazing camoflage. ",
+        "artwork" : ["https://blazepress.com/.image/t_share/MTMzNjkzODk2MDcxODc5MTM0/shiba-inu-gets-stuckjpg.jpg"]
+    },{
+        "title" : "Stylish Doge",
+        "name": "Brad Pup",
+        "description": " This doge has style. You wish your dog was this doge. But its not. Wow, so style.  ",
+        "artwork" : ["http://www.slate.com/content/dam/slate/articles/technology/technology/2016/02/160204_TECH_Shiba2.jpg.CROP.promo-xlarge2.jpg"]
+    },{
+        "title" : "Trapped Doge",
+        "name": "Stewart",
+        "description": " This doge is stuck. Worst kennel ever he says. LET DOGE OUT! He didnt know that the smelly shoes were reusable, he swears he thought you were done with them. Besides, doge can read, he knows they were Jordans anyways, not yours. Wow, much sad.   ",
+        "artwork" : ["https://lonelyplanetwpnews.imgix.net/2018/06/Shiba-Inu.jpeg"]
+    },{
+        "title" : "Gaurd Doge",
+        "name": "Robert",
+        "description": " Gaurd doge does not know the small yellow man. He will defend his household from the yellow evil. Wow, so courage. ",
+        "artwork" : ["https://www.japankyo.com/wp-content/uploads/2017/12/Shiba-inu-cute-fight-battle-Despicable-me-minions-toy-zoro-japan-youtube-video-.jpg"]
+    },{
+        "title" : "Puppy-doge",
+        "name": "David",
+        "description": " Just a pup. He's not even knowing how to catch his own tail yet. Wow, such cute. ",
+        "artwork" : ["https://orig00.deviantart.net/f7b9/f/2007/071/9/e/japanese_shiba_inu__shiba_dog__by_mogamij.jpg"]
+    },{
+        "title" : "Hover Doge",
+        "name": "Marty Mc-Float",
+        "description": " Just a hover doge. What, you havent seen a hover-doge before? Well! says the doge. Wow, such response! ",
+        "artwork" : ["http://hassciencegonetoofar.com/wp-content/uploads/2015/06/doge-is-hovercrafte.png"]
+    },{
+        "title" : "Ascended Doge",
+        "name": "Shiba",
+        "description": " This doge sat under a tree long enough to undesrtand all things. WOW.  ",
+        "artwork" : ["http://devyatka.ru/images/bx/2014/07/bf82b10d6edb8f75dd07e3d9530e0c4d.jpg"]
+    }]
+  }

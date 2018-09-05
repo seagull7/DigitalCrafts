@@ -1,0 +1,15 @@
+<div style="height: 150px;"></div>
+<% datafile.doge.forEach(function(item){ %>
+
+    <div style="border-bottom: 1px solid black; padding-bottom: 10px; background-color: rgba(189, 187, 187, 0.9);">
+        <h2 style="font-size:100px; margin:0px; padding: 0px;"> <%= item.title %></h2>
+        <div style="display:flex; align-items:center; flex-direction: row;">
+        <div style="width: 50%;margin-right: 20px; margin-left: 20px; display:flex; flex-direction:column; align-items:center;">
+            <img style="width: 100%; border-radius: 5%; " src="<%= item.artwork[0] %>" alt="">
+            <h3 style="font-size:50px; margin:0px; padding: 0px;"> <%= item.name %></h3>
+        </div>
+        <p style="font-size: 40px;margin-right: 20px; margin-left: 20px;"> <%= item.description %></p>
+        </div>
+    </div>
+   
+    <% }) %>

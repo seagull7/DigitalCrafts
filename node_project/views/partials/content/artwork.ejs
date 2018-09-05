@@ -1,0 +1,13 @@
+
+        <div class="pixgrid clearfix">
+      <% if (artwork.length > 0) { %>
+      <% for (i=0; i< artwork.length; i++) { %>
+        <a href="/breeds/<%=i%>">
+          <img class = "icon" src="<%= artwork[i] %>" alt="Artwork <%= i %>">
+          </a>
+      <% } %>
+      <% } %>
+    </div>
+
+
+

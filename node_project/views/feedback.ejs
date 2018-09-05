@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head><% include partials/structure/head.ejs %></head>
+  <body id="<%= pageID %>">
+    <% include partials/content/header.ejs %>
+    <div style="height: 150px;"></div>
+    <div style="background-image: url('https://i.imgur.com/GFeP2CU.jpg'); background-size: cover;">
+        <div class="flexin" style=" background-color: rgba(187, 184, 184, 0.65); ">
+
+          <form class = "feedback-form">
+
+              <h1 class="feedback-form-title">Send Us Suggestions</h1>
+              <label for="feedback-form-name">Name (yours, preffereably)</label>
+              <input type="text" class="form-control" id="feedback-form-name" placeholder="Enter your name">
+           
+              <label for="feedback-form-title">New Doge Showcase suggestion</label>
+              <input type="text" class="form-control" id="feedback-form-title" placeholder="Title of your feedback">
+
+                <label for="feedback-form-message">Why (motivate us)</label>
+                <textarea type="text" placeholder="Enter your message, then hit the submit"  class="form-control" id="feedback-form-message" rows="6"></textarea>
+
+            <button type="submit" class="btn SUB">Submit</button>
+          </form>
+          <div class = "resp">
+              <h2 class="article-title">So Feedback</h2>
+              results
+              <div class="feedback-messages">
+                  
+
+              </div>
+          </div>
+        </div>
+      </div>
+    <% include partials/content/footer.ejs %>
+    <% include partials/structure/jsdefaults.ejs %>
+  </body>
+</html>

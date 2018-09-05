@@ -1,0 +1,105 @@
+header{
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  background-color: black;
+  opacity: 80%;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+}
+h1{
+  font-size: 100px;
+  color: lightslategray;
+
+}
+h2{
+  color: lightslategray;
+  margin-right: 1vw;
+}
+.headIMG{
+  width: 150px;
+  height: 150px;
+}
+.blank{
+  height: 100vh;
+}
+.back{
+  background-image: url("https://i.ytimg.com/vi/Yj7ja6BANLM/maxresdefault.jpg");
+  background-attachment: fixed;
+  background-size: 100%;
+}
+.whole{
+  margin:0px;
+  padding: 0px;
+  background-color:black;
+}
+.icon{
+  width: 200px;
+  height:200px;
+  border-radius: 100%;
+}
+.icons{
+  background: black;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.icon:hover{
+  border-radius: 5%;
+  transition: .25s;
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  border: 1px solid black;
+}
+.call{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flexin{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.resp{
+  width: 40%;
+}
+.feedback-form-title{
+  font-size: 75px;
+  color: black;
+}
+.article-title, label, .feedback-messages{
+  color: black;
+
+}
+.SUB:hover{
+  border-top: 2px solid slategray;
+  border-left: 2px solid slategray;
+  border-right: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+}
+.SUB{
+  margin-top: 10px;
+  border-top: 2px solid lightgray;
+  border-left: 2px solid lightgray;
+  border-right: 2px solid slategrey;
+  border-bottom: 2px solid slategrey;
+}
+#head-box{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 125px;
+}
+a{
+  margin-top: -2%;
+  margin-bottom: -2%;
+}

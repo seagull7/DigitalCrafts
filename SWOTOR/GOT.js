@@ -43,9 +43,11 @@ var info = document.getElementById("infoBox");
                 //promonent figures
                 for (i=0; i< response.results[j].residents.length; i++){
                     let popURL = response.results[j].residents;
-                    $.get(popURL)
+                    console.log(popURL[i]);
+                    $.get(popURL[i])
                     .done(function(resp){
                         pr.push(resp.name);
+                        pr.push("\n");
                     })
                      .fail(function(error) {
                          console.log(error);
