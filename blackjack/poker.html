@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="poker.css">
+</head>
+<body>
+    <!-- Background (card table) -->
+    <div id="table">
+        <img id="green" src="table.jpg">
+
+
+            <!--CHIPS-->
+                <div id = "cash-box">
+                    <div>
+                        <label>
+                            $$$:
+                        </label>
+                        <label id="cash">
+
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Bet:
+                        </label>
+                        <label id="currentBet">
+
+                        </label>
+                    </div>
+                    
+                </div>
+            <!-- Scoring -->
+            <div class="scoring">
+                <div>
+                    <label>count: </label>
+                </div>
+                <div>
+                    <label>Dealer: </label>
+                    <label id="dealer-points" class="points"></label>
+                </div>
+                
+                <div>
+                    <label>Player: </label>
+                    <label id="player-points" class="points"></label>
+                </div>
+            </div>
+
+            <div class = "winTally">
+                <div>
+                    <label>WINS: </label>
+                </div>
+                <div>
+                    <label>Dealer: </label>
+                    <label id="dealer-wins" class="wins"></label>
+                </div>
+                
+                <div>
+                    <label>Player: </label>
+                    <label id="player-wins" class="wins"></label>
+                </div>
+            </div>
+
+
+            <!-- Dealer Hand -->
+            <div id="dealer-hand" class="hand">
+                <img class = "card" id= "1d" src="" >
+                <img class = "card"id="2d" src="" >
+                <img class = "card"id="3d" src="" >
+                <img class = "card"id="4d" src="" >
+                <img class = "card"id="5d" src="" >
+                <img class = "card"id="6d" src="" >
+                <img class = "card"id="7d" src="" >
+                <img class = "card"id="8d" src="" >
+                <img class = "card"id="9d" src="" >
+            </div>
+            <div id= "popUpMessage">
+                <img id= "popUpImage" src="">
+                <button id="continue-button">Play Again?</button>
+            </div>
+
+            <!-- Player Hand --> 
+            <div id="player-hand" class="hand">
+                <img class = "card"id="1p" src="" >
+                <img class = "card"id="2p" src="" >
+                <img class = "card"id="3p" src="" >
+                <img class = "card"id="4p" src="" >
+                <img class = "card"id="5p" src="" >
+                <img class = "card"id="6p" src="" >
+                <img class = "card"id="7p" src="" >
+                <img class = "card"id="8p" src="" >
+                <img class = "card"id="9p" src="" >
+            </div>
+
+            
+            <!-- Buttons -->  
+            <button id = "over-button">Bet?</button>
+
+            <div id="betButtons">
+                
+                    <button class="button" id="bet5">Bet +5</button>
+                    
+                    <button class="button" id="bet10">Bet +10</button>
+                    
+                    <button class="button" id="allIn">ALL IN!</button>
+
+                    <button class= "button" id="bet-5">Bet -5</button>
+
+                    <button class= "button" id="done">Done -></button>
+                
+            </div>
+            <div class="buttons">
+                
+                <button class="button" id="deal-button">Deal</button>
+                
+                <button class="button" id="hit-button">Hit</button>
+                
+                <button class="button" id="stand-button">Stand</button>
+            
+            </div>
+
+
+        </img>
+        
+    </div>
+        
+        
+    <script src = "poker.js"></script>
+</body>
+</html>
