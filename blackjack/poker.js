@@ -154,6 +154,13 @@ deal.onclick = function(){
     if (playerHand.reduce(getSum) == 21){
         playerWin();
     }
+    if(playerHand.reduce(getSum) > 21 ){
+        if (playerHand.indexOf(11) !== -1) {
+            playerHand[playerHand.indexOf(11)] = 1;
+            playerPoints.textContent= (playerHand.reduce(getSum));
+        }
+    }
+        
 
 }
 //function for the player to draw another card
@@ -211,7 +218,7 @@ stand.onclick = function(){
             dealerPoints.textContent= (dealerHand.reduce(getSum));
             dCounter ++;
         }
-        //checks for fdealer busts
+        //checks for dealer busts
         if(dealerHand.reduce(getSum) > 21 ){
             if (dealerHand.indexOf(11) !== -1) {
                 dealerHand[dealerHand.indexOf(11)] = 1;
@@ -354,19 +361,19 @@ function Card(point, suit) {
     this.point = point;
     this.suit = suit;
 }
-
+//gets a crds picture fromt he file folder
 Card.prototype.getImageURL= function(){
     return 'JPEG/'+ this.point + this.suit + ".jpg";
 }
-
+//a players hand
 function Hand() {
     this.cards = [];
 }
-
+//pushes a card to a players hand array
 Hand.prototype.addCard = function(card) {
     this.cards.push(card);
 }
-
+//returns a players points fomr thier hand
 Hand.prototype.getPoints = function() {
     var self = this;
     var points = self.cards.map(function(e) {
@@ -380,14 +387,14 @@ Hand.prototype.getPoints = function() {
 function Deck(){
     this.deck =[];
 }
-
+//takes a card from the deck array
 Deck.prototype.draw = function(){
     let cardIndex = Math.floor(Math.random()*deck.length);
     var randCard = deck[cardIndex];
     randCard.splice(cardIndex, 1);
     return randCard;
 }
-
+//shuffles deck array
 Deck.prototype.shuffle = function() {
     for (var i = this.deck.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -397,7 +404,7 @@ Deck.prototype.shuffle = function() {
     }
     return this.deck;
 }
-
+//retruns cards left in decl
 Deck.prototype.numCardsLeft = function() {
     return this.deck.length;
 }

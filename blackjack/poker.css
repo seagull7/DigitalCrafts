@@ -44,7 +44,7 @@ body{
     border-radius: 15%;
     box-shadow: 3px 3px 2px;
     background-color: slategrey;
-    font-size: 3em;
+    font-size: 2vw;
 }
 
 .scoring{
@@ -84,7 +84,7 @@ body{
     left: 20%;
     width: 60vw;
     height: 75vh;
-    transition: 2s;
+    /* transition: 2s; */
 }
 
 #popUpImage{
@@ -98,6 +98,7 @@ body{
     border-top-right-radius: 15px;
     z-index: 3;
     position: relative;
+    /* transition: 1s; */
 }
 
 #continue-button{
