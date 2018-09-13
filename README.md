@@ -1,7 +1,7 @@
-<h1>Digital Crafts Homeowrk</h1>
+<h1>Digital Crafts Homework Assignments</h1>
 
 <h2>Description</h2>
-THis repository caontains most/all of the small homeowrks done at digital crafts along with some of the bigger ones. They are mostly organized into folders. None are necessarily meant to be professional finished products, but rather are learning stepping stones.
+Tis repository contains the homeworks/assignemnts done at Digital Crafts. They are organized into folders. None are necessarily meant to be professional finished products, but rather are learning stepping stones for myself. 
 <h2>Technologies Used</h2>
 <li>HTML5</li>
 <li>CSS3</li>
